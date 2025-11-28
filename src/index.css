@@ -1,1 +1,101 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────────
+   BASE LAYER
+   Custom base styles that apply to HTML elements
+   ───────────────────────────────────────────────────────────────── */
+@layer base {
+  /* Smooth scrolling for the entire page */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Light theme (default) */
+  html. light {
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F8F9FA;
+    --text-primary: #202124;
+    --text-secondary: #5F6368;
+    --accent: #1A73E8;
+    --border: #DADCE0;
+  }
+
+  /* Dark theme */
+  html.dark {
+    --bg-primary: #202124;
+    --bg-secondary: #303134;
+    --text-primary: #E8EAED;
+    --text-secondary: #9AA0A6;
+    --accent: #8AB4F8;
+    --border: #5F6368;
+  }
+
+  /* Body base styles */
+  body {
+    @apply font-sans antialiased;
+    @apply bg-light-bg dark:bg-dark-bg;
+    @apply text-light-text dark:text-dark-text;
+    @apply transition-colors duration-300;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   COMPONENTS LAYER
+   Reusable component styles
+   ───────────────────────────────────────────────────────────────── */
+@layer components {
+  /* Google-style button */
+  .btn-primary {
+    @apply px-6 py-3 rounded-full;
+    @apply bg-accent-blue text-white;
+    @apply hover:shadow-lg hover:shadow-accent-blue/25;
+    @apply transition-all duration-300;
+    @apply font-medium;
+  }
+
+  /* Section container */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply py-16 md:py-24;
+  }
+
+  /* Section title */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold;
+    @apply text-light-text dark:text-dark-text;
+    @apply mb-4;
+  }
+
+  /* Card style */
+  .card {
+    @apply bg-light-surface dark:bg-dark-surface;
+    @apply border border-light-border dark:border-dark-border;
+    @apply rounded-xl p-6;
+    @apply hover:shadow-lg transition-shadow duration-300;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   UTILITIES LAYER
+   Custom utility classes
+   ───────────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Text gradient (for fancy headings) */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-accent-blue via-accent-red to-accent-yellow;
+  }
+
+  /* Hide scrollbar but allow scrolling */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  . scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
