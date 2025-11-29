@@ -1,5 +1,6 @@
 import { useTheme } from "./context/ThemeContext";
 import NavBar from "./components/common/NavBar";
+import Hero from "./components/sections/Hero";
 
 function App() {
   const { theme } = useTheme();
@@ -11,18 +12,8 @@ function App() {
 
       {/* Main Content (with padding-top for fixed navbar) */}
       <main className="pt-16">
-        {/* Temporary Hero Section for Testing */}
-        <section
-          id="home"
-          className="min-h-screen flex flex-col items-center justify-center px-4"
-        >
-          <h1 className="text-4xl md:text-6xl font-bold text-light-text dark:text-dark-text text-center">
-            Hi, I'm <span className="text-gradient">Ayushman</span>
-          </h1>
-          <p className="mt-4 text-xl text-light-textSecondary dark:text-dark-textSecondary text-center">
-            Crafting Code, Building Experiences
-          </p>
-        </section>
+        {/* Hero Section*/}
+        <Hero />
 
         {/* Placeholder Sections for Navigation Testing */}
         <section
